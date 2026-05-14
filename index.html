@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tiny Internet Museum</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="museum-rail" aria-label="Experiments">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <p>Tiny</p>
+            <h1>Internet Museum</h1>
+          </div>
+        </div>
+
+        <nav class="toy-nav" aria-label="Choose an experiment">
+          <button class="toy-tab is-active" type="button" data-toy="weather">
+            <span class="tab-icon tab-weather" aria-hidden="true"></span>
+            Color Weather
+          </button>
+          <button class="toy-tab" type="button" data-toy="dots">
+            <span class="tab-icon tab-dots" aria-hidden="true"></span>
+            Dot Counter
+          </button>
+          <button class="toy-tab" type="button" data-toy="sandwich">
+            <span class="tab-icon tab-stack" aria-hidden="true"></span>
+            Sandwich Universe
+          </button>
+          <button class="toy-tab" type="button" data-toy="timeline">
+            <span class="tab-icon tab-time" aria-hidden="true"></span>
+            Web Fossils
+          </button>
+        </nav>
+
+        <div class="ticker" aria-live="polite">
+          <span>Current oddity</span>
+          <strong id="tickerText">The sky is learning your color choices.</strong>
+        </div>
+      </aside>
+
+      <section class="stage" aria-live="polite">
+        <article class="toy-panel is-active" id="toy-weather" data-panel="weather">
+          <div class="panel-copy">
+            <p class="kicker">Interactive toy 01</p>
+            <h2>Paint the Weather</h2>
+            <p>Pick a feeling and the little city changes its mind.</p>
+          </div>
+          <div class="weather-layout">
+            <canvas id="weatherCanvas" width="920" height="560" aria-label="Animated city weather canvas"></canvas>
+            <div class="controls compact">
+              <button class="mood-button is-active" type="button" data-mood="sunrise">Sunrise</button>
+              <button class="mood-button" type="button" data-mood="storm">Storm</button>
+              <button class="mood-button" type="button" data-mood="mint">Mint</button>
+              <button class="mood-button" type="button" data-mood="midnight">Midnight</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="toy-panel" id="toy-dots" data-panel="dots">
+          <div class="panel-copy">
+            <p class="kicker">Interactive toy 02</p>
+            <h2>One Dot Per Something</h2>
+            <p>A tiny, noisy reminder that large numbers are rude to screens.</p>
+          </div>
+          <div class="dot-grid-wrap">
+            <canvas id="dotCanvas" width="980" height="560" aria-label="Dot counter visualization"></canvas>
+            <div class="stat-strip">
+              <label for="dotRange">Dots shown</label>
+              <input id="dotRange" type="range" min="100" max="12000" step="100" value="2400">
+              <strong id="dotCount">2,400</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="toy-panel" id="toy-sandwich" data-panel="sandwich">
+          <div class="panel-copy">
+            <p class="kicker">Interactive toy 03</p>
+            <h2>Sandwich Universe</h2>
+            <p>Build a stack. The museum will over-interpret it immediately.</p>
+          </div>
+          <div class="sandwich-lab">
+            <div class="ingredient-board" aria-label="Ingredient controls">
+              <button type="button" data-layer="tomato">Tomato</button>
+              <button type="button" data-layer="cheese">Cheese</button>
+              <button type="button" data-layer="pickle">Pickle</button>
+              <button type="button" data-layer="egg">Egg</button>
+              <button type="button" data-layer="jam">Jam</button>
+              <button type="button" data-action="reset">Reset</button>
+            </div>
+            <div class="sandwich-plate" aria-label="Generated sandwich stack">
+              <div id="sandwichStack" class="sandwich-stack"></div>
+            </div>
+            <div class="sandwich-facts">
+              <span>Height</span>
+              <strong id="sandwichHeight">2.8 cm</strong>
+              <span>Vibe</span>
+              <strong id="sandwichVibe">Polite lunch</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="toy-panel" id="toy-timeline" data-panel="timeline">
+          <div class="panel-copy">
+            <p class="kicker">Interactive toy 04</p>
+            <h2>Web Fossil Slider</h2>
+            <p>Scrub through fake artifacts from a smaller, weirder web.</p>
+          </div>
+          <div class="timeline-lab">
+            <div class="fossil-card" id="fossilCard">
+              <div class="browser-bar">
+                <span></span><span></span><span></span>
+                <p id="fossilUrl">http://home.example/~beep</p>
+              </div>
+              <div class="fossil-body">
+                <div class="fossil-image" id="fossilImage" aria-hidden="true"></div>
+                <h3 id="fossilTitle">Guestbook Galaxy</h3>
+                <p id="fossilText">A page with eleven counters, five fonts, and one sincere guestbook.</p>
+              </div>
+            </div>
+            <div class="year-control">
+              <label for="yearRange">Year</label>
+              <input id="yearRange" type="range" min="1996" max="2026" step="1" value="2001">
+              <strong id="yearValue">2001</strong>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
